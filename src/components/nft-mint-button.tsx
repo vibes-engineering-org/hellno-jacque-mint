@@ -578,9 +578,18 @@ export function NFTMintButton({
         erc20Details.symbol,
       );
     }
-    return priceData.mintPrice
-      ? `${formatEther(priceData.mintPrice)} ETH`
-      : "Free";
+    if (priceData.mintPrice) {
+      const ethValue = formatEther(priceData.mintPrice);
+      // Preserve precision for values like 0.0005 
+      const num = parseFloat(ethValue);
+      if (num > 0 && num < 1) {
+        // Format with up to 4 decimal places, removing only trailing zeros after the 4th decimal
+        const formatted = num.toFixed(4).replace(/\.?0+$/, '');
+        return `${formatted} ETH`;
+      }
+      return `${ethValue} ETH`;
+    }
+    return "Free";
   };
 
   const displayTotalCost = () => {
@@ -592,9 +601,18 @@ export function NFTMintButton({
         erc20Details.symbol,
       );
     }
-    return priceData.totalCost
-      ? `${formatEther(priceData.totalCost)} ETH`
-      : "Free";
+    if (priceData.totalCost) {
+      const ethValue = formatEther(priceData.totalCost);
+      // Preserve precision for small values
+      const num = parseFloat(ethValue);
+      if (num > 0 && num < 1) {
+        // Format with up to 4 decimal places, removing only trailing zeros after the 4th decimal
+        const formatted = num.toFixed(4).replace(/\.?0+$/, '');
+        return `${formatted} ETH`;
+      }
+      return `${ethValue} ETH`;
+    }
+    return "Free";
   };
 
   const displayMintFee = () => {
