@@ -13,6 +13,7 @@ export default async function Image() {
       <div
         style={{
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           width: "100%",
@@ -22,7 +23,7 @@ export default async function Image() {
           overflow: "hidden",
         }}
       >
-        {/* Clean gradient background */}
+        {/* Purple gradient background from left to right */}
         <div
           style={{
             position: "absolute",
@@ -30,27 +31,46 @@ export default async function Image() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: "linear-gradient(135deg, #7C65C1 0%, #5B4A9C 50%, #3E2B6D 100%)",
+            background: "linear-gradient(to right, #8b5cf6, #a855f7, #c084fc)",
           }}
         />
 
-        {/* Centered text only */}
+        {/* Main title */}
         <h1
           style={{
-            fontSize: "56px",
+            fontSize: "64px",
             fontWeight: "800",
             color: "#ffffff",
             textAlign: "center",
-            lineHeight: 1.1,
+            lineHeight: 1.2,
             letterSpacing: "-1px",
+            textShadow: "0 4px 20px rgba(0, 0, 0, 0.6)",
+            fontFamily: "system-ui, -apple-system, sans-serif",
+            position: "relative",
+            zIndex: 10,
+            marginBottom: "16px",
+          }}
+        >
+          Goddess Winds of Change #1
+        </h1>
+
+        {/* Author text */}
+        <p
+          style={{
+            fontSize: "28px",
+            fontWeight: "400",
+            color: "#ffffff",
+            textAlign: "center",
+            letterSpacing: "0px",
             textShadow: "0 2px 10px rgba(0, 0, 0, 0.5)",
             fontFamily: "system-ui, -apple-system, sans-serif",
             position: "relative",
             zIndex: 10,
+            opacity: 0.9,
           }}
         >
-          jacque Goddess Winds of Change #1
-        </h1>
+          by jacque
+        </p>
       </div>
     ),
     {
