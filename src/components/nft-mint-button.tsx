@@ -793,10 +793,6 @@ export function NFTMintButton({
                 <span className="text-neutral-500 dark:text-neutral-400">Quantity</span>
                 <span className="font-semibold">{amount}</span>
               </div>
-              <div className="flex justify-between items-center py-3 border-b">
-                <span className="text-neutral-500 dark:text-neutral-400">Price per NFT</span>
-                <span className="font-semibold">{displayPrice()}</span>
-              </div>
               {erc20Details && (
                 <div className="flex justify-between items-center py-3 border-b">
                   <span className="text-neutral-500 dark:text-neutral-400">Mint Fee</span>
